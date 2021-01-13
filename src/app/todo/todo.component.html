@@ -1,0 +1,25 @@
+<section>
+  <div>
+    <h1>{{ title }}</h1>
+    <p>A Place to do your ToDos</p>
+    <form>
+    <input id="filter" type="text" [(ngModel)]="filter" placeholder="Filter your todos" />
+</form>
+    <ol>
+      <li
+        *ngFor="let item of getFilteredResults(); index as i">
+
+        {{ todo.task }}
+        
+        <span class="completed" [ngClass]="{completed:todo.completed}"> {{ todo.completed }}</span>
+        <button id="x" type="button">x</button>
+        complete: {{ todo.completed }},
+
+        <span *ngIf="!todo.completed">
+            <button id="complete" (click)="markComplete(todo)">Complete</button></span>
+      </li>
+    </ol>
+    <input id="addtodo" type="text" placeholder="Add your to-do" />
+    <button id="add" type="button">Add</button>
+  </div>
+</section>
